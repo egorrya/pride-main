@@ -1,0 +1,110 @@
+@import 'src/styles/mixins.scss';
+
+$letterColor: #fee;
+$letterShadow: 0 -40px 100px, 0 0 2px, 0 0 1em #78bcf7, 0 0 0.5em #78bcf7,
+  0 0 0.1em #78bcf7, 0 10px 3px rgba(0, 0, 0, 0.2);
+
+.root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  color: #fff;
+  background: #222 url('./../../assets/images/roof-min.jpg') center no-repeat;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  background: rgb(17, 17, 17);
+  background: linear-gradient(
+    180deg,
+    rgba(17, 17, 17, 0) 0%,
+    rgba(17, 17, 17, 0) 70%,
+    rgba(17, 17, 17, 1) 90%,
+    rgba(17, 17, 17, 1) 100%
+  );
+}
+
+.logo {
+  position: absolute;
+
+  display: inline-block;
+  width: 100%;
+
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+
+  // margin: auto;
+  user-select: none;
+
+  b a {
+    font: 400 12vw 'Monoton';
+    letter-spacing: 1.2vw;
+    text-decoration: none;
+
+    color: $letterColor;
+    text-shadow: $letterShadow;
+
+    &:hover {
+      animation: hoverBlink linear infinite 1s;
+    }
+
+    @include respond(phone) {
+      font: 400 22vw 'Monoton';
+    }
+
+    @include respond(tab-land) {
+      font: 400 20vw 'Monoton';
+    }
+  }
+
+  .blinking {
+    animation: blink linear infinite 5s;
+  }
+}
+
+@keyframes blink {
+  78% {
+    color: $letterColor;
+    text-shadow: $letterShadow;
+  }
+  80% {
+    color: #333;
+    text-shadow: none;
+  }
+  82% {
+    color: $letterColor;
+    text-shadow: $letterShadow;
+  }
+}
+
+@keyframes hoverBlink {
+  44% {
+    color: $letterColor;
+    text-shadow: $letterShadow;
+  }
+  52% {
+    color: #333;
+    text-shadow: none;
+  }
+  56% {
+    color: $letterColor;
+    text-shadow: $letterShadow;
+  }
+  62% {
+    color: #333;
+    text-shadow: none;
+  }
+  66% {
+    color: $letterColor;
+    text-shadow: $letterShadow;
+  }
+}

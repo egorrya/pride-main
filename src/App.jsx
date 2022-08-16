@@ -1,9 +1,9 @@
-import HomeScreen from './components/HomeScreen';
+import Home from './pages/Home';
 
 const App = () => {
   return (
     <>
-      <HomeScreen />
+      <Home />
     </>
   );
 };
