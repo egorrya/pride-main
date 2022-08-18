@@ -3,6 +3,8 @@
 $letterColor: #fee;
 $letterShadow: 0 -40px 100px, 0 0 2px, 0 0 1em #78bcf7, 0 0 0.5em #78bcf7,
   0 0 0.1em #78bcf7, 0 10px 3px rgba(0, 0, 0, 0.2);
+$letterShadow2: 0 -40px 100px, 0 0 2px, 0 0 0.01em #78bcf7, 0 0 0.1em #78bcf7,
+  0 0 0.01em #78bcf7, 0 10px 1px rgba(0, 0, 0, 0.2);
 
 .root {
   position: relative;
@@ -10,7 +12,7 @@ $letterShadow: 0 -40px 100px, 0 0 2px, 0 0 1em #78bcf7, 0 0 0.5em #78bcf7,
   height: 100vh;
 
   color: #fff;
-  background: #222 url('./../../assets/images/roof-min.jpg') center no-repeat;
+  background: #222 url('./../../assets/images/roof.jpg') center no-repeat;
   background-size: cover;
 }
 
@@ -46,7 +48,9 @@ $letterShadow: 0 -40px 100px, 0 0 2px, 0 0 1em #78bcf7, 0 0 0.5em #78bcf7,
   user-select: none;
 
   b a {
+    display: inline-block;
     font: 400 12vw 'Monoton';
+    line-height: 0.9;
     letter-spacing: 1.2vw;
     text-decoration: none;
 
@@ -69,6 +73,31 @@ $letterShadow: 0 -40px 100px, 0 0 2px, 0 0 1em #78bcf7, 0 0 0.5em #78bcf7,
   .blinking {
     animation: blink linear infinite 5s;
   }
+
+  .scrolling {
+    pointer-events: none;
+    cursor: default;
+
+    text-shadow: none;
+
+    animation: 0.5s scrolling;
+
+    &:hover {
+      animation: 0.5s scrolling;
+    }
+  }
+
+  .scrolled {
+    pointer-events: none;
+    cursor: default;
+    text-shadow: $letterShadow2;
+
+    animation: 0.5s scrolled ease-in-out;
+
+    &:hover {
+      animation: none;
+    }
+  }
 }
 
 @keyframes blink {
@@ -76,35 +105,69 @@ $letterShadow: 0 -40px 100px, 0 0 2px, 0 0 1em #78bcf7, 0 0 0.5em #78bcf7,
     color: $letterColor;
     text-shadow: $letterShadow;
   }
-  80% {
+  79% {
     color: #333;
     text-shadow: none;
   }
+  81% {
+    color: $letterColor;
+    text-shadow: $letterShadow;
+  }
   82% {
+    color: #333;
+    text-shadow: none;
+  }
+  83% {
     color: $letterColor;
     text-shadow: $letterShadow;
   }
 }
 
 @keyframes hoverBlink {
+  14% {
+    color: $letterColor;
+    text-shadow: $letterShadow;
+  }
+  22% {
+    color: #333;
+    text-shadow: none;
+  }
+  26% {
+    color: $letterColor;
+    text-shadow: $letterShadow;
+  }
+  32% {
+    color: #333;
+    text-shadow: none;
+  }
+  36% {
+    color: $letterColor;
+    text-shadow: $letterShadow;
+  }
+  40% {
+    color: #333;
+    text-shadow: none;
+  }
   44% {
     color: $letterColor;
     text-shadow: $letterShadow;
   }
-  52% {
-    color: #333;
+}
+
+@keyframes scrolling {
+  0% {
+    text-shadow: $letterShadow2;
+  }
+  100% {
     text-shadow: none;
   }
-  56% {
-    color: $letterColor;
-    text-shadow: $letterShadow;
-  }
-  62% {
-    color: #333;
+}
+
+@keyframes scrolled {
+  0% {
     text-shadow: none;
   }
-  66% {
-    color: $letterColor;
-    text-shadow: $letterShadow;
+  100% {
+    text-shadow: $letterShadow2;
   }
 }
