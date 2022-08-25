@@ -5,6 +5,8 @@
 @import 'mixins';
 @import 'fonts';
 
+$neon: #78bcf7;
+
 *,
 *::after,
 *::before {
@@ -13,7 +15,15 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html {
+  scroll-behavior: smooth;
+
   font-size: 62.5%; // 1rem = 10px
 
   @include respond(tab-land) {
@@ -30,8 +40,82 @@ html {
 }
 
 body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
   box-sizing: border-box;
 
   background-color: #111;
   color: #fff;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-block;
+
+  position: relative;
+  padding: 1.3rem 2.9rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 1.7rem;
+
+  transition: 0.4s all;
+  cursor: pointer;
+  transition-delay: 0.1s;
+}
+
+.button::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 1px solid $neon;
+  border-left: 1px solid $neon;
+
+  transition: 0.4s all;
+  transition-delay: 0.1s;
+}
+
+.button::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid $neon;
+  border-right: 1px solid $neon;
+
+  transition: 0.4s all;
+  transition-delay: 0.1s;
+}
+
+.button:hover {
+  background: $neon;
+  color: #fff;
+  box-shadow: 0 0 40px $neon;
+  border-radius: 15px;
+}
+
+.button:hover::after {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.button:hover::before {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
