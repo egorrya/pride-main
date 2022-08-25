@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { motion } from 'framer-motion';
 
@@ -30,22 +30,7 @@ const title = [
   },
 ];
 
-function useWindowSize() {
-  const [size, setSize] = useState([0, 0]);
-  useLayoutEffect(() => {
-    function updateSize() {
-      setSize([window.innerWidth, window.innerHeight]);
-    }
-    window.addEventListener('resize', updateSize);
-    updateSize();
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
-  return size;
-}
-
 const Hero = () => {
-  const [width] = useWindowSize();
-
   const isMounted = useRef(false);
 
   const [letterHover, setLetterHover] = useState(false);
@@ -54,16 +39,6 @@ const Hero = () => {
   const [distance, setDistance] = useState(null);
 
   const positionY = useScrollPosition();
-
-  useEffect(() => {
-    const reload = () => window.location.reload();
-
-    window.addEventListener('resize', reload);
-
-    return () => {
-      window.removeEventListener('resize', reload);
-    };
-  }, [width]);
 
   useEffect(() => {
     if (isMounted) {
