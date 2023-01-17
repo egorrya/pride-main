@@ -30,7 +30,7 @@ const title = [
   },
 ];
 
-const Hero = () => {
+const Hero = ({ pageTitle, pageDescription, pageLink }) => {
   const isMounted = useRef(false);
 
   const [letterHover, setLetterHover] = useState(false);
@@ -131,7 +131,10 @@ const Hero = () => {
                 //   backgroundImage: `url("https://via.placeholder.com/500")`,
                 // }}
               >
-                <div ref={goalBlockRef} className={styles.inviseLetter}>
+                <div
+                  ref={goalBlockRef}
+                  className={styles.inviseLetter}
+                >
                   P
                 </div>
               </div>
@@ -158,7 +161,7 @@ const Hero = () => {
                   }}
                   className='text-6xl font-bold mb-10'
                 >
-                  Название
+                  {pageTitle}
                 </motion.h2>
 
                 <motion.p
@@ -170,10 +173,7 @@ const Hero = () => {
                   }}
                   className='mt-4 text-gray-300'
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Aliquid, molestiae! Quidem est esse numquam odio deleniti,
-                  beatae, magni dolores provident quaerat totam eos, aperiam
-                  architecto eius quis quibusdam fugiat dicta.
+                  {pageDescription}
                 </motion.p>
 
                 <motion.a
@@ -184,7 +184,7 @@ const Hero = () => {
                     delay: 0.9,
                   }}
                   className='button mt-10'
-                  href='/contact'
+                  href={pageLink}
                 >
                   Перейти
                 </motion.a>

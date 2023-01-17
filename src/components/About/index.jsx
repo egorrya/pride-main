@@ -3,9 +3,12 @@ import React from 'react';
 
 import styles from './About.module.scss';
 
-const About = ({ backgroundImage, title, text, link, theme }) => {
+const About = ({ pageLetter, pageTitle, pageDescription, pageLink }) => {
   return (
-    <section id='about' className={styles.root}>
+    <section
+      id='about'
+      className={styles.root}
+    >
       <div className='px-4 py-24 mx-auto max-w-screen-xl sm:px-6 lg:px-8'>
         <div className='grid grid-cols-1 lg:grid-cols-2 lg:h-[50rem]'>
           <div className='relative z-10 lg:py-16'>
@@ -24,7 +27,7 @@ const About = ({ backgroundImage, title, text, link, theme }) => {
                 }}
                 className={styles.letter}
               >
-                R
+                {pageLetter}
               </motion.div>
             </div>
           </div>
@@ -50,7 +53,7 @@ const About = ({ backgroundImage, title, text, link, theme }) => {
                 }}
                 className='text-6xl font-bold mb-10'
               >
-                Название
+                {pageTitle}
               </motion.h2>
 
               <motion.p
@@ -62,10 +65,7 @@ const About = ({ backgroundImage, title, text, link, theme }) => {
                 }}
                 className='mt-4 text-gray-300'
               >
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquid, molestiae! Quidem est esse numquam odio deleniti,
-                beatae, magni dolores provident quaerat totam eos, aperiam
-                architecto eius quis quibusdam fugiat dicta.
+                {pageDescription}
               </motion.p>
 
               <motion.a
@@ -76,7 +76,7 @@ const About = ({ backgroundImage, title, text, link, theme }) => {
                   delay: 0.9,
                 }}
                 className='button mt-10'
-                href='/contact'
+                href={pageLink}
               >
                 Перейти
               </motion.a>
