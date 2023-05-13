@@ -1,9 +1,9 @@
 @import 'src/styles/mixins.scss';
 
 $letterColor: #fee;
-$letterShadow: 0 -40px 100px, 0 0 2px, 0 0 1em #78bcf7, 0 0 0.5em #78bcf7,
+$letterShadow: 0 0 100px, 0 0 2px, 0 0 1em #78bcf7, 0 0 0.5em #78bcf7,
 	0 0 0.1em #78bcf7, 0 10px 3px rgba(0, 0, 0, 0.2);
-$letterShadow2: 0 -40px 100px, 0 0 2px, 0 0 0.01em #78bcf7, 0 0 0.1em #78bcf7,
+$letterShadow2: 0 0 100px, 0 0 2px, 0 0 0.01em #78bcf7, 0 0 0.1em #78bcf7,
 	0 0 0.01em #78bcf7, 0 10px 1px rgba(0, 0, 0, 0.2);
 
 .root {
@@ -32,7 +32,7 @@ $letterShadow2: 0 -40px 100px, 0 0 2px, 0 0 0.01em #78bcf7, 0 0 0.1em #78bcf7,
 	}
 
 	@include respond(phone) {
-		font: 400 22vw 'Monoton';
+		font: 400 27vw 'Monoton';
 	}
 
 	@include respond(tab-land) {

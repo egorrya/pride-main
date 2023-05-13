@@ -48,7 +48,7 @@ const Hero = ({
 		if (positionY < distance.top)
 			return {
 				translateY: positionY,
-				translateX: distance.left / (distance.top / positionY),
+				translateX: (distance.left * 1.2) / (distance.top / positionY),
 				scale: 0.5 / (distance.top / positionY) + 1,
 			};
 		if (positionY >= distance.top)
