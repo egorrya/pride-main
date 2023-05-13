@@ -2,204 +2,217 @@
 
 $letterColor: #fee;
 $letterShadow: 0 -40px 100px, 0 0 2px, 0 0 1em #78bcf7, 0 0 0.5em #78bcf7,
-  0 0 0.1em #78bcf7, 0 10px 3px rgba(0, 0, 0, 0.2);
+	0 0 0.1em #78bcf7, 0 10px 3px rgba(0, 0, 0, 0.2);
 $letterShadow2: 0 -40px 100px, 0 0 2px, 0 0 0.01em #78bcf7, 0 0 0.1em #78bcf7,
-  0 0 0.01em #78bcf7, 0 10px 1px rgba(0, 0, 0, 0.2);
+	0 0 0.01em #78bcf7, 0 10px 1px rgba(0, 0, 0, 0.2);
 
 .root {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+	position: relative;
+	width: 100vw;
+	height: 100vh;
 
-  color: #fff;
-  background: #222 url('./../../assets/images/roof.jpg') center no-repeat;
-  background-size: cover;
+	color: #fff;
+	background: #222 url('./../../assets/images/roof.jpg') center no-repeat;
+	background-size: cover;
 }
 
-.kleverLogo {
-  position: absolute;
-  width: 5rem;
-  top: 2rem;
-  // left: 50%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  opacity: 0.8;
-  // transform: translateX(-50%);
+.aboutFirstSection {
+	min-height: 80vh;
+
+	@include respond(tab-port) {
+		min-height: 100%;
+	}
+}
+
+.svg {
+	display: block;
+	position: absolute;
+	width: 4rem;
+	height: 4rem;
+	top: 2rem;
+
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	opacity: 0.8;
+
+	& path {
+		fill: #fff;
+	}
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
 
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
 
-  background: rgb(17, 17, 17);
-  background: linear-gradient(
-    180deg,
-    rgba(17, 17, 17, 0) 0%,
-    rgba(17, 17, 17, 0) 70%,
-    rgba(17, 17, 17, 1) 90%,
-    rgba(17, 17, 17, 1) 100%
-  );
+	background: rgb(17, 17, 17);
+	background: linear-gradient(
+		180deg,
+		rgba(17, 17, 17, 0) 0%,
+		rgba(17, 17, 17, 0) 70%,
+		rgba(17, 17, 17, 1) 90%,
+		rgba(17, 17, 17, 1) 100%
+	);
 
-  transition: background 1s;
+	transition: background 1s;
 }
 
 .logo {
-  position: absolute;
+	position: absolute;
 
-  display: inline-block;
-  width: 100%;
+	display: inline-block;
+	width: 100%;
 
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
 
-  // margin: auto;
-  user-select: none;
+	user-select: none;
 
-  b a {
-    display: inline-block;
-    font: 400 12vw 'Monoton';
-    line-height: 0.9;
-    letter-spacing: 1.2vw;
-    text-decoration: none;
+	b a {
+		display: inline-block;
+		font: 400 11vw 'Monoton';
+		line-height: 0.9;
+		letter-spacing: 1.2vw;
+		text-decoration: none;
 
-    color: $letterColor;
-    text-shadow: $letterShadow;
+		color: $letterColor;
+		text-shadow: $letterShadow;
+		transition: all 0.8s ease-out;
 
-    &:hover {
-      animation: hoverBlink linear infinite 1s;
-    }
+		&:hover {
+			animation: hoverBlink linear infinite 1s;
+		}
 
-    @include respond(phone) {
-      font: 400 22vw 'Monoton';
-    }
+		@include respond(phone) {
+			font: 400 22vw 'Monoton';
+		}
 
-    @include respond(tab-land) {
-      font: 400 20vw 'Monoton';
-    }
-  }
+		@include respond(tab-land) {
+			font: 400 15vw 'Monoton';
+		}
+	}
 
-  .blinking {
-    animation: blink linear infinite 5s;
-  }
+	.blinking {
+		animation: blink linear infinite 5s;
+	}
 
-  .scrolling {
-    pointer-events: none;
-    cursor: default;
+	.scrolling {
+		pointer-events: none;
+		cursor: default;
 
-    text-shadow: none;
+		text-shadow: none;
 
-    animation: 0.5s scrolling ease-in-out;
+		animation: 0.5s scrolling ease-in-out;
 
-    &:hover {
-      animation: 0.5s scrolling ease-in-out;
-    }
-  }
+		&:hover {
+			animation: 0.5s scrolling ease-in-out;
+		}
+	}
 
-  .scrolled {
-    pointer-events: none;
-    cursor: default;
-    text-shadow: $letterShadow2;
+	.scrolled {
+		pointer-events: none;
+		cursor: default;
+		text-shadow: $letterShadow2;
 
-    animation: 0.5s scrolled ease-in-out;
+		animation: 0.5s scrolled ease-in-out;
 
-    &:hover {
-      animation: none;
-    }
-  }
+		&:hover {
+			animation: none;
+		}
+	}
 }
 
 .inviseLetter {
-  opacity: 0;
-  display: inline-block;
-  font: 400 12vw 'Monoton';
-  line-height: 0.9;
-  letter-spacing: 1.2vw;
-  margin-left: 5%;
-  // transform: scale(1.5);
+	opacity: 0;
+	display: inline-block;
+	font: 400 12vw 'Monoton';
+	line-height: 0.9;
+	letter-spacing: 1.2vw;
+	margin-left: 5%;
+	// transform: scale(1.5);
 
-  @include respond(phone) {
-    font: 400 22vw 'Monoton';
-  }
+	@include respond(phone) {
+		font: 400 22vw 'Monoton';
+	}
 
-  @include respond(tab-land) {
-    font: 400 20vw 'Monoton';
-  }
+	@include respond(tab-land) {
+		font: 400 20vw 'Monoton';
+	}
 }
 
 @keyframes blink {
-  78% {
-    color: $letterColor;
-    text-shadow: $letterShadow;
-  }
-  79% {
-    color: #333;
-    text-shadow: none;
-  }
-  81% {
-    color: $letterColor;
-    text-shadow: $letterShadow;
-  }
-  82% {
-    color: #333;
-    text-shadow: none;
-  }
-  83% {
-    color: $letterColor;
-    text-shadow: $letterShadow;
-  }
+	78% {
+		color: $letterColor;
+		text-shadow: $letterShadow;
+	}
+	79% {
+		color: #333;
+		text-shadow: none;
+	}
+	81% {
+		color: $letterColor;
+		text-shadow: $letterShadow;
+	}
+	82% {
+		color: #333;
+		text-shadow: none;
+	}
+	83% {
+		color: $letterColor;
+		text-shadow: $letterShadow;
+	}
 }
 
 @keyframes hoverBlink {
-  14% {
-    color: $letterColor;
-    text-shadow: $letterShadow;
-  }
-  22% {
-    color: #333;
-    text-shadow: none;
-  }
-  26% {
-    color: $letterColor;
-    text-shadow: $letterShadow;
-  }
-  32% {
-    color: #333;
-    text-shadow: none;
-  }
-  36% {
-    color: $letterColor;
-    text-shadow: $letterShadow;
-  }
-  40% {
-    color: #333;
-    text-shadow: none;
-  }
-  44% {
-    color: $letterColor;
-    text-shadow: $letterShadow;
-  }
+	14% {
+		color: $letterColor;
+		text-shadow: $letterShadow;
+	}
+	22% {
+		color: #333;
+		text-shadow: none;
+	}
+	26% {
+		color: $letterColor;
+		text-shadow: $letterShadow;
+	}
+	32% {
+		color: #333;
+		text-shadow: none;
+	}
+	36% {
+		color: $letterColor;
+		text-shadow: $letterShadow;
+	}
+	40% {
+		color: #333;
+		text-shadow: none;
+	}
+	44% {
+		color: $letterColor;
+		text-shadow: $letterShadow;
+	}
 }
 
 @keyframes scrolling {
-  0% {
-    text-shadow: $letterShadow2;
-  }
-  100% {
-    text-shadow: none;
-  }
+	0% {
+		text-shadow: $letterShadow2;
+	}
+	100% {
+		text-shadow: none;
+	}
 }
 
 @keyframes scrolled {
-  0% {
-    text-shadow: none;
-  }
-  100% {
-    text-shadow: $letterShadow2;
-  }
+	0% {
+		text-shadow: none;
+	}
+	100% {
+		text-shadow: $letterShadow2;
+	}
 }
