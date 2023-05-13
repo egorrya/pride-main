@@ -88,12 +88,8 @@ $letterShadow2: 0 0 100px, 0 0 2px, 0 0 0.01em #78bcf7, 0 0 0.1em #78bcf7,
 			animation: hoverBlink linear infinite 1s;
 		}
 
-		@include respond(phone) {
-			font: 400 27vw 'Monoton';
-		}
-
 		@include respond(tab-land) {
-			font: 400 15vw 'Monoton';
+			font: 400 19vw 'Monoton';
 		}
 	}
 

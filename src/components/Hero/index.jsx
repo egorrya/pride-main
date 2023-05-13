@@ -24,19 +24,33 @@ const Hero = ({
 
 	const positionY = useScrollPosition();
 
+	const handleLetterPos = () => {
+		const firstLetterPos = getElementPosition(lettersRef.current.children[0]);
+		const goalBlockPos = getElementPosition(goalBlockRef.current);
+
+		setDistance({
+			top: goalBlockPos.top - firstLetterPos.top,
+			left: goalBlockPos.left - firstLetterPos.left,
+		});
+	};
+
 	useEffect(() => {
-		if (isMounted) {
-			const firstLetterPos = getElementPosition(lettersRef.current.children[0]);
-			const goalBlockPos = getElementPosition(goalBlockRef.current);
-
-			setDistance({
-				top: goalBlockPos.top - firstLetterPos.top,
-				left: goalBlockPos.left - firstLetterPos.left,
-			});
-		} else {
+		if (!isMounted.current) {
 			window.scrollTo(0, 0);
-
 			isMounted.current = true;
+		}
+	}, []);
+
+	useEffect(() => {
+		if (isMounted.current) {
+			handleLetterPos();
+
+			const observer = new ResizeObserver(handleLetterPos);
+			observer.observe(document.body);
+
+			return () => {
+				observer.disconnect();
+			};
 		}
 	}, [isMounted]);
 
@@ -48,7 +62,7 @@ const Hero = ({
 		if (positionY < distance.top)
 			return {
 				translateY: positionY,
-				translateX: (distance.left * 1.2) / (distance.top / positionY),
+				translateX: (distance.left * 1.25) / (distance.top / positionY),
 				scale: 0.5 / (distance.top / positionY) + 1,
 			};
 		if (positionY >= distance.top)
