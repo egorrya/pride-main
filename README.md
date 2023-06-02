@@ -1,6 +1,6 @@
-# 🏳️‍🌈 Pride Celebration Website 🌈
+# Pride Celebration Website 🌈
 
-Welcome to the [Pride Celebration Website](https://egorrya.github.io/pride-main/) repository! This website is dedicated to celebrating the LGBTQ+ community, promoting inclusivity and diversity, and advocating for equal rights. Our goal is to provide a platform that educates, supports, and empowers members of the LGBTQ+ community and their allies.
+Welcome to the [Pride Celebration Website](https://egorrya.github.io/pride-main/) repository! This website is dedicated to celebrating the LGBTQ+ community, promoting inclusivity and diversity, and advocating for equal rights. 
 
 [Visit Website](https://egorrya.github.io/pride-main/)
 
